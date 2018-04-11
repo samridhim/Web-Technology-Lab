@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<company>
+	<employee>
+		<name> Samridhi </name>
+		<id> C_001 </id>
+		<department> ENTC </department>
+		<salary> 10000 </salary>
+	</employee>
+	<employee>
+		<name> Anushree </name>
+		<id> C_002 </id>
+		<department> ENTC </department>
+		<salary> 18000 </salary>
+	</employee>
+	<employee>
+		<name> Ruchi </name>
+		<id> C_003 </id>
+		<department> ENTC </department>
+		<salary> 19002 </salary>
+	</employee>
+	<employee>
+		<name> Nidhi </name>
+		<id> C_004 </id>
+		<department> Computer </department>
+		<salary> 10002 </salary>
+	</employee>
+	<employee>
+		<name> Nidhi </name>
+		<id> C_004 </id>
+		<department> Computer </department>
+		<salary> 12002 </salary>
+	</employee>
+</company>

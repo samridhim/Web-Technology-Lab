@@ -1,0 +1,46 @@
+<html>
+<link rel = "stylesheet" type = "text/css" href = "style/style.css">
+<title> Registration </title>
+<body>
+<h1><b> REGISTRATION FORM </b></h1>
+<div>
+<form action = "form1.html" id = "form1" onSubmit = "return Validate()"><p>
+<input type = "text" placeholder = "Enter First Name" name = "firstname" required = "true"> </input></p><p>
+<input type = "text" placeholder = "Enter Last Name" name = "lastname" required = "true"> </input></p><p>
+<input type = "email" placeholder = "Enter E-mail" name = "email" required = "true"> </input></p><p>
+<input type = "text" placeholder = "Enter Phone" name = "phone" required = "true"> </input></p><p>
+<label> Designation </label><select form = "form1"  name = "Designation">
+<option value = "Student"> Student </option>
+<option value = "Professor"> Professor </option>
+<option value = "Corporate"> Corporate </option>
+</select></p><p>
+<label> Country </label><select form = "form1"  name = "Country">
+<option value = "India"> India </option>
+<option value = "North America"> North America </option>
+<option value = "Canada"> Canada </option>
+<option value = "England"> England </option>
+</select></p><p>
+<input type ="submit" value = "Submit"> </input></p>
+<input type ="reset" value = "Reset"> </input>
+</form>
+</div>
+<script>
+function Validate()
+{
+return FormValidate()
+}
+function FormValidate()
+{
+var Phone = document.getElementsByName("phone");
+var isnum = /^\d+$/.test(Phone[0].value)
+if(!isnum || Phone[0].value.length!=10)
+{
+alert("Phone cant be string and also needs to length 10");
+return false;
+}
+else
+return true;
+}
+</script>
+</body>
+</html>

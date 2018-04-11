@@ -1,0 +1,41 @@
+body
+{
+text-align : center;
+background-color: lightblue;
+}
+div
+{
+margin-left : 250px;
+margin-right: 250px;
+margin-top: 150px;
+margin-bottom: 150px;
+background-color: grey; 
+}
+
+h1
+{
+font-size: 40px;
+}
+input, select {
+	margin-top:10px;
+}
+
+input[type="submit"]
+{
+    background-color: #E62B1E /* THE ONLY HEX CODE I KNOW TEDXD */;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+input:hover{
+background-color:orange;
+}
+
+select:hover{
+background-color:orange;
+}
+}

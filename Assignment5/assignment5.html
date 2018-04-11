@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html>
+<body>
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    myFunction(this);
+    }
+};
+xhttp.open("GET", "employee.xml", true);
+xhttp.send();
+
+function myFunction(xml) {
+	var dept1 = [];
+	var idept1 =0;
+	var idept2 =0;
+	total_dept1=0;
+	total_dept2=0;
+	var idept3 =0;
+	var dept2 = [];
+	var dept3 = [];
+    var xmlDoc = xml.responseXML;
+	console.log(xmlDoc);
+    var nodes = xmlDoc.getElementsByTagName('employee'); //Get the <employee> tags
+    amountOfNodes = nodes.length;
+	console.log(amountOfNodes);
+	for(var i =0 ;i<amountOfNodes;i++){
+    var k = xmlDoc.getElementsByTagName("employee")[i];
+	var s = (k.childNodes[5].innerHTML);
+	console.log(k);
+	console.log(s);
+	if (s.indexOf("Computer") > -1 )
+	{
+		dept1[idept1] = parseInt(k.childNodes[7].innerHTML);
+		console.log(dept1[idept1]);
+		total_dept1= total_dept1 + dept1[idept1];
+		idept1++;
+	}
+	else if(s.indexOf("ENTC") > -1)
+	{
+		dept2[idept2] = parseInt(k.childNodes[7].innerHTML);
+		console.log(dept2[idept2]);
+		total_dept2= total_dept2 + dept2[idept2];
+		idept2++;
+	}
+	}
+	console.log("Computer Average " + total_dept1/(idept1));
+	console.log("Entc Average "+ total_dept2/(idept2));
+	console.log("Computer Max " + Math.max(...dept1));
+	console.log("Computer Max " + Math.max(...dept2));
+
+	document.write("Computer Average " + total_dept1/(idept1) + "<br>");
+	document.write("Entc Average "+ total_dept2/(idept2) +"<br>");
+	document.write("Computer Max " + Math.max(...dept1) +"<br>");
+	document.write("Computer Max " + Math.max(...dept2) +"<br>");
+}
+</script>
+
+</body>
+</html> 

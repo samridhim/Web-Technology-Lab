@@ -1,0 +1,99 @@
+<html>
+<title> Student marks</title>
+<body>
+<p>
+<fieldset>
+<legend> Students </legend>
+<form id = "form1">
+<input type = text name = "marks" id ="math"> </input>
+<input type = text name = "marks"id ="english"> </input>
+<input type = text name = "marks" id= "science"> </input>
+<input type = text name = "marks" id = "history"> </input>
+<input type = text name = "marks" id = "geography"> </input>
+<input type="reset" onclick="Validate()">
+</form>
+</fieldset>
+<p>
+<script>
+function Validate()
+{
+	var p = document.getElementsByName("marks");
+	for(var i =0; i<p.length;i ++)
+		{
+			if(!(/^\d+$/.test(p[i].value)))
+				{
+					alert("Only numbers please");
+					return 0;
+				}
+		}
+		Submit1();
+}
+var countclicks =0;
+var x = new Array(5);
+for (var i = 0; i < 5; i++) {
+  x[i] = new Array(7);
+}
+function Submit1(){
+console.log(countclicks);
+x[countclicks][0] = document.getElementById("math").value;
+x[countclicks][1] = document.getElementById("science").value;
+x[countclicks][2] = document.getElementById("english").value;
+x[countclicks][3] = document.getElementById("history").value;
+x[countclicks][4] = document.getElementById("geography").value;
+if(countclicks==4)
+{
+DisplayTable(x);
+}
+else{
+alert("entered for student number " + parseInt(countclicks+1) + ". Enter for Next");
+countclicks++;
+}
+}
+function DisplayTable(x){
+var result = 0;
+for(var i =0;i<5;i++)
+{
+result = 0;
+for(var j =0;j<5;j++){
+result  = parseInt(x[i][j]) + parseInt(result);
+x[i][5] = ((parseInt(result) / 500)*100) + "%";
+}
+}
+for(var i =0;i<5;i++)
+{
+if(parseInt(x[i][5].split('%')[0])>=70){
+x[i][6]="Excellent";
+}
+else if(parseInt(x[i][5].split('%')[0])>=60 &&parseInt(x[i][5].split('%')[0])<70 ){
+x[i][6]="Good";
+}
+else if(parseInt(x[i][5].split('%')[0])>=50 &&parseInt(x[i][5].split('%')[0])<60 ){
+x[i][6]="Ok";
+}
+else
+x[i][6]="need Improvement";
+}
+var table = document.createElement('table');
+table.setAttribute('border', '1px');
+table.setAttribute('bgcolor', 'lightblue');
+table.setAttribute('width', '100%');
+var tbody = document.createElement('tbody');
+x.forEach(function(rowData){
+var row = document.createElement('tr');
+rowData.forEach(function(columnData){
+var cell = document.createElement('td');
+cell.appendChild(document.createTextNode(columnData));
+row.appendChild(cell);
+});
+tbody.appendChild(row);
+});
+table.appendChild(tbody);
+var caption = document.createElement('span');
+caption.innerHTML ="table for students";
+document.body.appendChild(caption);
+document.body.appendChild(table);
+} 	
+</script>
+<p>
+</p>
+</body>

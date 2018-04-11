@@ -1,0 +1,18 @@
+<html ng-app  ="currencyConvertor">
+<head>
+<title> Convertor </title>
+<script src = "angular.js"></script>
+<script src = "app.js"></script>
+</head>
+<body>
+<div ng-controller="ConvertorCtrl as ctrl">
+<span> INR</span>
+<input type ="text" ng-model ="ctrl.input1"></input>
+<span> USD</span>
+<input type ="text" ng-model ="ctrl.input2"></input>
+<button ng-click ="ctrl.computeResult1()"> INR TO USD </button>
+<button ng-click ="ctrl.computeResult2()"> USD TO INR </button>
+USD : {{ctrl.input2 | currency : $}} INR : {{ctrl.input1 | currency : "\u20B9"}}
+</div>
+</body>
+</html>

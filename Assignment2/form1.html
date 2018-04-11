@@ -1,0 +1,53 @@
+<html>
+<link rel = "stylesheet" type = "text/css" href="style/style2.css">
+<title> Payment Portal </title>
+<body>
+<h1 style = "font-size : 40px" id ="first"> PAYMENT </h1>
+<div>
+<form id = "form1">
+<p>
+<select form = "form1" name = "bank">
+<option value = "HDFC"> HDFC </option>
+<option value = "Axis"> Axis </option>
+<option value = "Indian"> Indian </option>
+<option value = "SBI"> SBI </option>
+</select>
+<input type = "text" placeholder ="OWNER NAME" required = "true"></input></p><p>
+<input type = "text" placeholder = "CARD NUMBER" required = "true" name = "card"></input></p><p>
+<input type = "password" placeholder = "CVV" required="true"></input></p><p>
+<label> Expiry Date </label><input type = "date" placeholder = "Expiry" required="true"></input></p><p> 
+<p>
+<input type = "reset" value = "Submit" onclick = "return formValidate()"></input></p>
+</form> 
+</div>
+<script>
+console.log(getQueryVariable("firstname"));;
+var h1 = document.getElementById("first");
+h1.childNodes[0].nodeValue = h1.childNodes[0].nodeValue +"FOR "+ (getQueryVariable("firstname").toUpperCase());
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+function formValidate()
+{
+var card = document.getElementsByName("card");
+var k = /^\d+$/.test(card[0].value);
+if(!k && card!=null)
+{
+alert("Card number has to be only numbers or can't be null");
+return false;
+}
+else{
+alert("Payment Successfull!");
+return true;
+}
+}
+</script>
+</body>
+</html>
